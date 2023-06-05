@@ -1,0 +1,37 @@
+const int greenLEDPin=9;
+const int blueLEDPin=10;
+const int redLEDPin=11;
+const int greenSENSORPin=A1;
+const int blueSENSORPin=A2;
+const int redSENSORPin=A0;
+int greenLEDValue=0;
+int blueLEDValue=0;
+int redLEDValue=0;
+
+void setup() {
+Serial.begin (9600);
+pinMode (greenLEDPin, OUTPUT);
+pinMode (blueLEDPin, OUTPUT);
+pinMode (redLEDPin, OUTPUT);
+}
+
+void loop() {
+greenLEDValue=analogRead (greenSENSORPin);
+Serial.print ("greenSENORPin=");
+Serial.println (greenSENSORPin);
+delay (1000);
+greenLEDValue = greenLEDValue /4;
+Serial.print ("greenLEDValue=");
+Serial.println (greenLEDValue);
+delay (1000);
+blueLEDValue =  analogRead (blueSENSORPin);
+blueLEDValue = blueLEDValue /4;
+redLEDValue = analogRead (redSENSORPin);
+redLEDValue = redLEDValue /4;
+analogWrite (greenLEDPin, greenLEDValue);
+analogWrite (blueLEDPin, blueLEDValue);
+analogWrite (redLEDPin, redLEDValue);
+  
+
+
+}
